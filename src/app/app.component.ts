@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 
 export type Button = {
   icon: string;
@@ -12,7 +12,7 @@ export type Button = {
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, NgClass],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -84,6 +84,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.defaultRequest();
+    this.updateWindowSize();
   }
 
   buttons = signal<Button[]>([
@@ -92,4 +93,16 @@ export class AppComponent {
   ]);
 
   openLink(url: string) { window.open(url, '_blank'); }
+
+  sliderBool1: boolean = true;
+  sliderBool2: boolean = true;
+  updateWindowSize() {
+    if (window.innerWidth < 980 || window.innerHeight < 600) this.sliderBool2 = false;
+  }
+
+  changePage(direction: 'left' | 'right') {
+    if ((direction === 'left' && this.sliderBool1) || (direction === 'right' && this.sliderBool2)) return;
+    this.sliderBool1 = !this.sliderBool1;
+    this.sliderBool2 = !this.sliderBool2;
+  }
 }

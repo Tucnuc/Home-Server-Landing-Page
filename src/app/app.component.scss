@@ -220,3 +220,278 @@
     width: 107.5%;
     box-shadow: -1.5rem 1rem 4rem rgba(0,0,0,0.18);
 }
+
+.sliderBtn {
+    z-index: 2;
+    position: absolute;
+    bottom: 2.5%;
+    font-size: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    color: #2f2e57;
+}
+.leftBtn {
+    margin-left: -3rem;
+}
+.rightBtn {
+    margin-left: 3rem;
+}
+
+.disabled {
+    color: #605d80;
+    cursor: default;
+}
+
+// -----------------------------------------------------------------------
+// Media Queries
+
+@media only screen and (max-width: 1080px), (max-height: 680px) {
+    .weather img {
+        margin-top: -8.1rem;
+        height: 648px;
+    }
+
+    .weather-app {
+        width: 31.5rem;
+        height: 58.5rem;
+    }
+
+    .search {
+        row-gap: .9rem;
+    }
+
+    .search-top {
+        column-gap: .9rem;
+    }
+
+    .search-top i {
+        font-size: 1.8rem;
+    }
+
+    .search-top div {
+        font-size: 1.44rem;
+        letter-spacing: .09rem;
+    }
+
+    .search-bar input {
+        width: 22.5rem;
+        height: 3.15rem;
+        border-radius: 2.7rem;
+        padding: 0.9rem 2.7rem 0.9rem 0.9rem;
+        font-size: 1.44rem;
+    }
+
+    .search-bar input::placeholder {
+        font-size: 1.26rem;
+        letter-spacing: 0.09rem;
+    }
+
+    .search-bar i {
+        right: 1.35rem;
+        font-size: 1.35rem;
+    }
+
+    .weather-type {
+        font-size: 1.8rem;
+    }
+
+    .temp {
+        font-size: 8.1rem;
+        text-shadow: 0.45rem 0.45rem 0.9rem rgba(0, 0, 0, 0.2);
+    }
+
+    .weather-date {
+        font-size: 1.44rem;
+    }
+
+    .weather-data {
+        bottom: 1.8rem;
+        column-gap: 1.8rem;
+        padding: 0 1.8rem;
+    }
+
+    .weather-data > div {
+        row-gap: 1.35rem;
+        padding: 0.9rem;
+        border-radius: 0.9rem;
+    }
+
+    .data-name {
+        font-size: 1.44rem;
+    }
+
+    .weather-data i {
+        font-size: 1.8rem;
+        text-shadow: -0.27rem 0.27rem 0.45rem rgba(0, 0, 0, 0.1);
+    }
+
+    .data {
+        font-size: 1.8rem;
+    }
+
+    .not-found {
+        font-size: 2.7rem;
+        margin-top: 4.5rem;
+        text-shadow: -0.27rem -0.45rem 0.9rem rgba(0, 0, 0, 0.2);
+    }
+
+    .loader {
+        width: 7.2rem;
+        margin-top: 9rem;
+    }
+
+// -----------------------------------
+
+    .buttonsCon {
+        gap: 4.5rem;
+    }
+
+    .button {
+        height: 7.2rem;
+        padding-left: 1.8rem;
+        gap: 2.7rem;
+        box-shadow: -0.45rem 0.45rem 2.7rem rgba(0,0,0,0.25);
+    }
+
+    .button img {
+        height: 5.4rem;
+    }
+
+    .button p {
+        font-size: 2.7rem;
+    }
+
+    .button:hover {
+        box-shadow: -1.35rem 0.9rem 3.6rem rgba(0,0,0,0.18);
+    }
+}
+
+@media only screen and (max-width: 980px), (max-height: 600px) {
+    .weather img {
+        margin-top: -7.29rem;
+        height: 583.2px;
+    }
+
+    .weather-app {
+        width: 28.35rem;
+        height: 52.65rem;
+        margin: 0;
+    }
+
+    .search {
+        row-gap: 0.81rem;
+    }
+
+    .search-top {
+        column-gap: 0.81rem;
+    }
+
+    .search-top i {
+        font-size: 1.62rem;
+    }
+
+    .search-top div {
+        font-size: 1.296rem;
+        letter-spacing: 0.081rem;
+    }
+
+    .search-bar input {
+        width: 20.25rem;
+        height: 2.835rem;
+        border-radius: 2.43rem;
+        padding: 0.81rem 2.43rem 0.81rem 0.81rem;
+        font-size: 1.296rem;
+    }
+
+    .search-bar input::placeholder {
+        font-size: 1.134rem;
+        letter-spacing: 0.081rem;
+    }
+
+    .search-bar i {
+        right: 1.215rem;
+        font-size: 1.215rem;
+    }
+
+    .weather-type {
+        font-size: 1.62rem;
+    }
+
+    .temp {
+        font-size: 7.29rem;
+        text-shadow: 0.405rem 0.405rem 0.81rem rgba(0, 0, 0, 0.2);
+    }
+
+    .weather-date {
+        font-size: 1.296rem;
+    }
+
+    .weather-data {
+        bottom: 1.62rem;
+        column-gap: 1.62rem;
+        padding: 0 1.62rem;
+    }
+
+    .weather-data > div {
+        row-gap: 1.215rem;
+        padding: 0.81rem;
+        border-radius: 0.81rem;
+    }
+
+    .data-name {
+        font-size: 1.296rem;
+    }
+
+    .weather-data i {
+        font-size: 1.62rem;
+        text-shadow: -0.243rem 0.243rem 0.405rem rgba(0, 0, 0, 0.1);
+    }
+
+    .data {
+        font-size: 1.62rem;
+    }
+
+    .not-found {
+        font-size: 2.43rem;
+        margin-top: 4.05rem;
+        text-shadow: -0.243rem -0.405rem 0.81rem rgba(0, 0, 0, 0.2);
+    }
+
+    .loader {
+        width: 6.48rem;
+        margin-top: 8.1rem;
+    }
+
+// -----------------------------------
+
+    .container {
+        justify-content: flex-end;
+    }
+
+    .weather-app-con {
+        width: 100%;
+    }
+    .weather-app {
+        margin: 0;
+    }
+
+    .buttonsCon {
+        width: 100%;
+        height: 100%;
+        gap: 4.05rem;
+    }
+
+    .button {
+        width: 60%;
+        border-radius: 100vh;
+        justify-content: center;
+        padding: 0;
+        box-shadow: 0 0.45rem 2.7rem rgba(0,0,0,0.25);
+    }
+
+    .button:hover {
+        width: 60%;
+        box-shadow: 0 0.45rem 2.7rem rgba(0,0,0,0.4);
+    }
+}

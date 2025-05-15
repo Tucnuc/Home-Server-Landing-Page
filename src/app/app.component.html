@@ -7,61 +7,70 @@
 >
     <div class="blur"></div>
 
-    <div class="weather-app-con">
-        <div class="weather-app"
-            [style.background-image]="
-                weatherData.weather?.[0]?.main
-                    ? backgroundImages[weatherData.weather[0].main].replace('to right', 'to top')
-                    : 'linear-gradient(to top, #ece9f7, #f3f3fa)'
-            "
-        >
-            <div class="search">
-                <div class="search-top">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div class="location">{{ nameValues.display }}</div>
-                </div>
-                <div class="search-bar">
-                    <input type="text" placeholder="Enter Location" [(ngModel)]="nameValues.searchName" (keyup.enter)="search()">
-                    <i class="fa-solid fa-magnifying-glass" (click)="search()"></i>
+    @if (!sliderBool1 || !sliderBool2) {
+        <i class="fa-solid fa-arrow-left sliderBtn leftBtn" [ngClass]="{ 'disabled': sliderBool1 }" (click)="changePage('left')"></i>
+        <i class="fa-solid fa-arrow-right sliderBtn rightBtn" [ngClass]="{ 'disabled': sliderBool2 }" (click)="changePage('right')"></i>
+    }
+
+    @if (sliderBool1) {
+            <div class="weather-app-con">
+                <div class="weather-app"
+                    [style.background-image]="
+                        weatherData.weather?.[0]?.main
+                            ? backgroundImages[weatherData.weather[0].main].replace('to right', 'to top')
+                            : 'linear-gradient(to top, #ece9f7, #f3f3fa)'
+                    "
+                >
+                    <div class="search">
+                        <div class="search-top">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div class="location">{{ nameValues.display }}</div>
+                        </div>
+                        <div class="search-bar">
+                            <input type="text" placeholder="Enter Location" [(ngModel)]="nameValues.searchName" (keyup.enter)="search()">
+                            <i class="fa-solid fa-magnifying-glass" (click)="search()"></i>
+                        </div>
+                    </div>
+                    @if (loading) {
+                        <img src="./images/loading.gif" alt="loading" class="loader">
+                    }
+                    @else if (weatherData.notFound) {
+                        <div class="not-found">Not Found 😒</div>
+                    }
+                    @else {
+                        <div class="weather">
+                        <img [src]="this.weatherData.weather ? this.weatherImages[this.weatherData.weather[0].main] : null" alt="weather icon">
+                        <div class="weather-type">{{ weatherData.weather ? weatherData.weather[0].main : null }}</div>
+                        <div class="temp">{{ weatherData.main?.temp | number:'1.0-0' }}°</div>
+                        </div>
+                        <div class="weather-date">
+                            <p>{{ `${daysOfWeek[currentDate.getDay()]}, ${currentDate.getDate()} ${months[currentDate.getMonth()]}` }}</p>
+                        </div>
+                        <div class="weather-data">
+                            <div class="humidity">
+                                <div class="data-name">Humidity</div>
+                                <i class="fa-solid fa-droplet"></i>
+                                <div class="data">{{ weatherData.main ? weatherData.main.humidity : null }}%</div>
+                            </div>
+                            <div class="wind">
+                                <div class="data-name">Wind</div>
+                                <i class="fa-solid fa-wind"></i>
+                                <div class="data">{{ weatherData.wind ? weatherData.wind.speed : null }} km/h</div>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
-            @if (loading) {
-                <img src="./images/loading.gif" alt="loading" class="loader">
-            }
-            @else if (weatherData.notFound) {
-                <div class="not-found">Not Found 😒</div>
-            }
-            @else {
-                <div class="weather">
-                <img [src]="this.weatherData.weather ? this.weatherImages[this.weatherData.weather[0].main] : null" alt="weather icon">
-                <div class="weather-type">{{ weatherData.weather ? weatherData.weather[0].main : null }}</div>
-                <div class="temp">{{ weatherData.main?.temp | number:'1.0-0' }}°</div>
-                </div>
-                <div class="weather-date">
-                    <p>{{ `${daysOfWeek[currentDate.getDay()]}, ${currentDate.getDate()} ${months[currentDate.getMonth()]}` }}</p>
-                </div>
-                <div class="weather-data">
-                    <div class="humidity">
-                        <div class="data-name">Humidity</div>
-                        <i class="fa-solid fa-droplet"></i>
-                        <div class="data">{{ weatherData.main ? weatherData.main.humidity : null }}%</div>
-                    </div>
-                    <div class="wind">
-                        <div class="data-name">Wind</div>
-                        <i class="fa-solid fa-wind"></i>
-                        <div class="data">{{ weatherData.wind ? weatherData.wind.speed : null }} km/h</div>
-                    </div>
+    }
+
+    @if (sliderBool2) {
+        <div class="buttonsCon">
+            @for (button of buttons(); track $index) {
+                <div class="button" [style.background-image]="button.color" (click)="openLink(button.link)">
+                    <img [src]="button.icon" alt="icon">
+                    <p>{{ button.name }}</p>
                 </div>
             }
         </div>
-    </div>
-
-    <div class="buttonsCon">
-        @for (button of buttons(); track $index) {
-            <div class="button" [style.background-image]="button.color" (click)="openLink(button.link)">
-                <img [src]="button.icon" alt="icon">
-                <p>{{ button.name }}</p>
-            </div>
-        }
-    </div>
+    }
 </div>
