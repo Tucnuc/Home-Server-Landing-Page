@@ -88,8 +88,8 @@ export class AppComponent {
   }
 
   buttons = signal<Button[]>([
-    { icon: './svgs/Nextcloud_Logo.svg', name: 'Nextcloud', color: 'linear-gradient(to right, white, #87CEEB)', link: 'https://nextcloud.dojc.cc/' },
-    { icon: './svgs/CodeServer_Logo.svg', name: 'Code Server', color: 'linear-gradient(to right, #559CFC, #086BFD)', link: 'https://code.dojc.cc/' },
+    { icon: 'svgs/Nextcloud_Logo.svg', name: 'Nextcloud', color: 'linear-gradient(to right, white, #87CEEB)', link: 'https://nextcloud.dojc.cc/' },
+    { icon: 'svgs/CodeServer_Logo.svg', name: 'Code Server', color: 'linear-gradient(to right, #559CFC, #086BFD)', link: 'https://code.dojc.cc/' },
   ]);
 
   openLink(url: string) { window.open(url, '_blank'); }
